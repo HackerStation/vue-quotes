@@ -1,7 +1,11 @@
 <template>
   <div class="row">
     <div class="all-quotes">
-      <Quote v-for="quote in quotes" :key="quote">{{ quote }}</Quote>
+      <Quote
+        v-for="(quote, idx) in quotes"
+        :key="quote"
+        @click.native="deleteQuote(idx)"
+      >{{ quote }}</Quote>
     </div>
   </div>
 </template>
@@ -15,10 +19,18 @@ export default {
   },
   components: {
     Quote
+  },
+  methods: {
+    deleteQuote(idx) {
+      this.$emit("onDeleteQuote", idx);
+    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.all-quotes {
+  padding: 15px;
+}
 </style>

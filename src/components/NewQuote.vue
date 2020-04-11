@@ -52,4 +52,7 @@ export default {
 #new-quote {
   margin-top: 10px;
 }
+.submit-quote {
+  margin-top: 15px;
+}
 </style>

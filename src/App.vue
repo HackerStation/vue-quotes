@@ -2,7 +2,10 @@
   <div id="app" class="container">
     <Header :maxQuotes="maxQuotes" :numOfQuotes="numOfQuotes" />
     <NewQuote @onSubmitQuote="submitQuote" />
-    <AllQuotes :quotes="quotes" />
+    <AllQuotes :quotes="quotes" @onDeleteQuote="deleteQuote" />
+    <div class="col-sm-12 del-info">
+      <div class="alert alert-warning">Info: Click on a quote to delete it!</div>
+    </div>
   </div>
 </template>
 
@@ -29,6 +32,9 @@ export default {
     submitQuote(quote) {
       this.quotes.push(quote);
       this.numOfQuotes++;
+    },
+    deleteQuote(idx) {
+      this.quotes = this.quotes.filter((quote, id) => id !== idx);
     }
   }
 };
@@ -37,5 +43,8 @@ export default {
 <style>
 #app {
   margin: 60px auto;
+}
+.del-info {
+  margin-top: 50px;
 }
 </style>
