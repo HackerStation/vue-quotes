@@ -20,12 +20,12 @@ export default {
   name: "Header",
   props: {
     maxQuotes: Number,
-    currentQuotes: Number
+    numOfQuotes: Number
   },
   data: function() {
     return {
       totalNumOfQuotes: this.maxQuotes,
-      currentNumOfQuotes: this.currentQuotes
+      currentNumOfQuotes: this.numOfQuotes
     };
   },
   methods: {}

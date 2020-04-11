@@ -1,14 +1,15 @@
 <template>
-  <div class="row justify-content-center">
-    <div class="col-8">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
       <div class="new-quote">
         <h3>Quote</h3>
         <textarea
           id="new-quote"
-          cols="100"
+          cols="80"
           rows="5"
           placeholder="Enter your quote..."
-          @keyup="updateQuote"
+          @change="updateQuote"
+          v-model="quote"
         ></textarea>
         <div class="submit-quote text-center">
           <button class="btn btn-primary" @click="submitQuote">Add Quote</button>
@@ -19,7 +20,6 @@
 </template>
 
 <script>
-import { store } from "../main";
 export default {
   name: "NewQuote",
   data: function() {
@@ -32,9 +32,12 @@ export default {
       this.quote = event.target.value.trim();
     },
     submitQuote() {
-      console.log(this.quote);
-      store.$emit();
-      this.$emit("onSubmitQuote", this.quote);
+      if (this.quote && this.quote.length !== 0) {
+        this.$emit("onSubmitQuote", this.quote);
+        this.quote = "";
+      } else {
+        alert("Please enter a quote");
+      }
     }
   }
 };
@@ -44,7 +47,7 @@ export default {
 <style scoped>
 .new-quote {
   margin: 60px auto;
-  width: 66.66%;
+  /* width: 66.66%; */
 }
 #new-quote {
   margin-top: 10px;

@@ -17,8 +17,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .panel-body {
-  font-family: "Arizomia", cursive;
-  font-size: 24;
+  font-family: "Arizonia", cursive;
+  font-size: 28px;
   color: #6e6e6e;
 }
 .quote {

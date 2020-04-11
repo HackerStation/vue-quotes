@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container">
-    <Header :maxQuotes="maxQuotes" :currentQuotes="currentQuotes" />
-    <NewQuote @onSubmitQuote="quotes.push($event)" />
+    <Header :maxQuotes="maxQuotes" :numOfQuotes="numOfQuotes" />
+    <NewQuote @onSubmitQuote="submitQuote" />
     <AllQuotes :quotes="quotes" />
   </div>
 </template>
@@ -20,18 +20,22 @@ export default {
   },
   data: function() {
     return {
-      quotes: ["Hey!", "Hey hey hey!!"],
+      quotes: [],
       maxQuotes: 5,
-      currentQuotes: 0
+      numOfQuotes: 0
     };
   },
-  methods: {}
+  methods: {
+    submitQuote(quote) {
+      this.quotes.push(quote);
+      this.numOfQuotes++;
+    }
+  }
 };
 </script>
 
 <style>
 #app {
-  /* font-family: "Arizonia", cursive; */
   margin: 60px auto;
 }
 </style>

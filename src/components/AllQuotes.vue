@@ -15,8 +15,7 @@ export default {
   },
   components: {
     Quote
-  },
-  data: function() {}
+  }
 };
 </script>
 
