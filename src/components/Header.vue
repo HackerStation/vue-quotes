@@ -1,7 +1,7 @@
 <template>
-  <div class="header">
-    <div class="row">
-      <div class="col-6 col-lg-12">
+  <div class="row">
+    <div class="col-6 col-lg-12">
+      <div class="header">
         <h1>Quotes Added</h1>
         <div class="progress-bar">
           <div
