@@ -1,11 +1,7 @@
 <template>
   <div class="row">
     <div class="all-quotes">
-      <Quote
-        v-for="(quote, idx) in quotes"
-        :key="quote"
-        @click.native="deleteQuote(idx)"
-      >{{ quote }}</Quote>
+      <Quote v-for="(quote, idx) in quotes" :key="idx" @click.native="deleteQuote(idx)">{{ quote }}</Quote>
     </div>
   </div>
 </template>

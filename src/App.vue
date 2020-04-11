@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <Header :maxQuotes="maxQuotes" :numOfQuotes="numOfQuotes" />
+    <Header :maxQuotes="maxQuotes" :quoteCount="quotes.length" />
     <NewQuote @onSubmitQuote="submitQuote" />
     <AllQuotes :quotes="quotes" @onDeleteQuote="deleteQuote" />
     <div class="col-sm-12 del-info">
@@ -24,14 +24,17 @@ export default {
   data: function() {
     return {
       quotes: [],
-      maxQuotes: 5,
-      numOfQuotes: 0
+      maxQuotes: 5
     };
   },
   methods: {
     submitQuote(quote) {
+      if (this.quotes.length >= this.maxQuotes) {
+        return alert(
+          "Please delete one of the existing quotes to enter a new quote"
+        );
+      }
       this.quotes.push(quote);
-      this.numOfQuotes++;
     },
     deleteQuote(idx) {
       this.quotes = this.quotes.filter((quote, id) => id !== idx);
