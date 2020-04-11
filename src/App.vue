@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <Header />
     <NewQuote />
     <AllQuotes />
@@ -26,6 +26,7 @@ export default {
 
 <style>
 #app {
-  font-family: "Arizonia", cursive;
+  /* font-family: "Arizonia", cursive; */
+  margin: 60px auto;
 }
 </style>
