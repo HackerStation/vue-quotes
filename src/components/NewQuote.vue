@@ -10,12 +10,16 @@
           placeholder="Enter your quote..."
           @keyup="updateQuote"
         ></textarea>
+        <div class="submit-quote text-center">
+          <button class="btn btn-primary" @click="submitQuote">Add Quote</button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { store } from "../main";
 export default {
   name: "NewQuote",
   data: function() {
@@ -25,7 +29,12 @@ export default {
   },
   methods: {
     updateQuote(event) {
-      this.quote = event.target.value;
+      this.quote = event.target.value.trim();
+    },
+    submitQuote() {
+      console.log(this.quote);
+      store.$emit();
+      this.$emit("onSubmitQuote", this.quote);
     }
   }
 };

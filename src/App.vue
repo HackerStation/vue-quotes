@@ -1,9 +1,8 @@
 <template>
   <div id="app" class="container">
-    <Header />
-    <NewQuote />
-    <AllQuotes />
-    <Quote />
+    <Header :maxQuotes="maxQuotes" :currentQuotes="currentQuotes" />
+    <NewQuote @onSubmitQuote="quotes.push($event)" />
+    <AllQuotes :quotes="quotes" />
   </div>
 </template>
 
@@ -11,16 +10,22 @@
 import Header from "./components/Header";
 import NewQuote from "./components/NewQuote";
 import AllQuotes from "./components/AllQuotes";
-import Quote from "./components/Quote";
 
 export default {
   name: "App",
   components: {
     Header,
     NewQuote,
-    AllQuotes,
-    Quote
-  }
+    AllQuotes
+  },
+  data: function() {
+    return {
+      quotes: ["Hey!", "Hey hey hey!!"],
+      maxQuotes: 5,
+      currentQuotes: 0
+    };
+  },
+  methods: {}
 };
 </script>
 

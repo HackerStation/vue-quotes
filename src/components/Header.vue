@@ -7,7 +7,7 @@
           <div
             class="progress-bar text-center"
             v-if="currentNumOfQuotes > 0"
-            :style="[{'background-color': '#007BFF', margin: 0, color: 'white', 'padding-top': '10px', width: currentNumOfQuotes * 10 + '%'}]"
+            :style="[{'background-color': '#007BFF', margin: 0, color: 'white', 'padding-top': '10px', width: currentNumOfQuotes / totalNumOfQuotes * 100 + '%'}]"
           >{{ currentNumOfQuotes }} / {{ totalNumOfQuotes }}</div>
         </div>
       </div>
@@ -18,10 +18,14 @@
 <script>
 export default {
   name: "Header",
+  props: {
+    maxQuotes: Number,
+    currentQuotes: Number
+  },
   data: function() {
     return {
-      totalNumOfQuotes: 10,
-      currentNumOfQuotes: 0
+      totalNumOfQuotes: this.maxQuotes,
+      currentNumOfQuotes: this.currentQuotes
     };
   },
   methods: {}
